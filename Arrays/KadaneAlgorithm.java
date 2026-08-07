@@ -8,7 +8,6 @@ Description    : Finds the contiguous subarray with the largest sum
                  and also prints the elements of that subarray.
 Time Complexity: O(n)
 Space Complexity: O(1)
-Author         : Shiva Reddy
 Date           : 05-04-2026
 */
 
