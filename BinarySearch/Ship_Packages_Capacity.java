@@ -1,3 +1,17 @@
+/*
+Problem Name    : Ship Packages Within D Days
+Platform        : Striver A2Z DSA Sheet
+Topic           : Binary Search
+Approach        : Binary Search on Answer. Search for the minimum ship
+                  capacity between the maximum package weight and the
+                  total weight. For each capacity, calculate the number
+                  of days required to ship all packages in order.
+Description     : Find the minimum ship capacity required to ship all
+                  packages within the given number of days.
+Time Complexity : O(n * log(sum of weights))
+Space Complexity: O(1)
+*/
+
 import java.util.*;
  class Ship_Packages_Capacity{
 
