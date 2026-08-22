@@ -1,0 +1,73 @@
+/*
+Problem Name    : Allocate Books
+Platform        : Striver A2Z DSA Sheet
+Topic           : Binary Search
+Approach        : Binary Search on Answer. Search for the minimum possible
+                  maximum number of pages assigned to a student. For each
+                  maximum page limit, check whether all books can be allocated
+                  to the given number of students.
+Description     : Allocate books to students such that each student gets
+                  at least one book and the maximum pages assigned to any
+                  student is minimized.
+*/
+
+import java.util.*;
+
+public class Allocate_Books {
+       public static int pages(int[] arr,int n,int st){
+        int low = 0;
+        int high = 0;
+
+        for(int i = 0; i < n; i++) {
+            if(arr[i] > low) {
+                low = arr[i];
+            }
+            high += arr[i];
+        }
+        int ans = -1;
+
+        while(low<=high){
+            int mid = low+(high-low)/2;
+            int sum=0;
+            int std = 1;
+
+            for(int i=0;i<n;i++){
+
+                if(sum+arr[i] <= mid){
+                    sum+=arr[i];
+                }
+                else{
+                    std += 1;
+                    sum=arr[i];
+                }
+            }
+
+            if(std <= st){
+                ans=mid;
+                high = mid-1;
+            }
+            else
+                low = mid + 1;
+
+        }
+
+        return ans;
+    }
+
+
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        System.out.println("Enter the No:of books : ");
+        int n = sc.nextInt();
+        System.out.println("Enter the pages of the books : ");
+        int[] arr = new int[n];
+        for(int i=0; i<n; i++){
+            arr[i] = sc.nextInt();
+        }
+        System.out.println("Enter the No:of students : ");
+        int st = sc.nextInt();
+
+        System.out.println(pages(arr,n,st));
+    }
+}
+
